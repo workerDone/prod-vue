@@ -3,6 +3,12 @@
  <div class="header" >
     <i class='ion-navicon' @click="show = !show" ></i>
     <aside v-show="show" transition="slide" class="headre__menu" >
+      <router-link class-active="active" :to="'dashboard'">Dashboarb</router-link>
+      <router-link class-active="active" :to="'contribution'">Contribution</router-link>
+      <router-link class-active="active" :to="'verification'">Verification</router-link>
+      <router-link class-active="active" :to="'history'">Histiry</router-link>
+      <router-link class-active="active" :to="'faq'">FAQ</router-link>
+      <router-link class-active="active" :to="'settings'">Settings</router-link>
     </aside>
   </div>
   <div id="app">
@@ -45,6 +51,7 @@ export default {
     color: white;
     padding: 10px;
     cursor: pointer;
+    z-index: 10;
   }
 .headre__menu{
   position: absolute;
@@ -53,12 +60,40 @@ export default {
   width: 200px;
   min-height: 100%;
   background-color:  rgba(50, 50, 50, 0.8);
-  z-index: -10;
+  padding-top: 70px;
+  align-content: stretch;
   }
   .slide-transition{
     transition: all .3s cubic-bezier(.65, 0.5, 0.56, 1);
   }
   .slide-enter,  .slide-leave{
-left: -100%;
+    left: -100%;
   }
+  .items{
+   
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  .items:hover{
+    color: grey;
+    background-color: rgba(0, 0, 50, 0.6); 
+  }
+a{
+height: 60px;
+display: flex;
+align-items: center;
+padding-left: 20px;
+cursor: pointer;
+text-decoration: none;
+color: white;
+}
+a:hover, .router-link-exact-active{
+  color: grey;
+   background-color: rgba(0, 0, 50, 0.6); 
+}
+
 </style>
