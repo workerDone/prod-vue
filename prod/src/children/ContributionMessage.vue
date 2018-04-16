@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div> {{message}} </div>
+        <div :class="data" > {{message}} </div>
         <input type="text"  @input="moveDate" >
         <input type="text" v-model.number="join" >
         <input
@@ -19,6 +19,7 @@ export default {
   props: ["message"],
   data() {
     return {
+        data: 'join',
       hello: "",
       join: "",
       toggle: ''
@@ -37,19 +38,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.join{
+    color:red;
 }
 </style>
