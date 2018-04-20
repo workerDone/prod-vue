@@ -11,6 +11,12 @@ Vue.use(VueResource);
 
 Vue.http.options.root = 'https://jsonplaceholder.typicode.com/';
 
+Vue.http.interceptors.push((request, next) => {
+  request.headers.set('SUCURE', 'TOKEN');
+  next((response) => {
+    console.log(response);
+  });
+} )
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
