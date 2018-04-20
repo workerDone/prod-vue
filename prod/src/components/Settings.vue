@@ -58,6 +58,7 @@ export default {
       ).then(
      respons => respons.json(),
      respons => console.log('join')
+     
    ).then(respons => 
       {
         console.log(respons);
