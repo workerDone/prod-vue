@@ -21,7 +21,7 @@ export default {
     };
   },
   created() {
-   this.$http.get('https://jsonplaceholder.typicode.com/users').then(
+   this.$http.get('users').then(
      respons => respons.json(),
      respons => console.log('join')
    ).then(respons => 
@@ -30,11 +30,15 @@ export default {
         console.log( this.message,2)
       })
   },
-
+  http: {
+    headers: {
+      'X-HTTP': 'HTTP_TOKEN_SECURE'
+    } 
+  },
   methods: {
     moveId(userId) {
       console.log(this.go)
-      this.$http.get('https://jsonplaceholder.typicode.com/posts/{userId}', {
+      this.$http.get('posts/{userId}', {
         params: {
           userId: userId
         }
@@ -50,7 +54,7 @@ export default {
       this.$router.history.go(-1)
     },
     movePost() {
-       this.$http.get('https://jsonplaceholder.typicode.com/posts/',{
+       this.$http.get('posts/',{
         params: {
           userId: 2
         }
@@ -58,7 +62,7 @@ export default {
       ).then(
      respons => respons.json(),
      respons => console.log('join')
-     
+
    ).then(respons => 
       {
         console.log(respons);
